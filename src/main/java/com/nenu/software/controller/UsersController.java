@@ -50,7 +50,7 @@ public class UsersController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "redirect:/news/list";
+        return "redirect:/index/";
     }
 
     @RequestMapping(value = "/logout",method = RequestMethod.POST)
