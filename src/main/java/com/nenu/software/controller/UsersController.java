@@ -53,7 +53,7 @@ public class UsersController {
         return "redirect:/index/";
     }
 
-    @RequestMapping(value = "/logout",method = RequestMethod.POST)
+    @RequestMapping(value = "/logout",method = RequestMethod.GET)
     public String logout(Users users,HttpSession session) {
         if (session.getAttribute("user") != null) {
             session.removeAttribute("user");
