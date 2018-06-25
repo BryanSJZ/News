@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.nenu.software.mapper.NewsMapper">
+    <insert id="newNews">
+        INSERT INTO t_news(title, content, type, author)
+        VALUES(#{title},#{content},#{type},#{author})
+    </insert>
+
+    <delete id="delById">
+        DELETE FROM t_news
+        WHERE id = #{id}
+    </delete>
+
+    <update id="update">
+        UPDATE t_news
+        SET title = #{title},
+        content = #{content},
+        type = #{type},
+        author = #{author}
+        WHERE
+        id = #{id}
+    </update>
+
+    <select id="queryById" resultType="com.nenu.software.common.entity.News">
+        SELECT *
+        FROM t_news
+        WHERE id = #{id}
+    </select>
+
+    <select id="queryAll" resultType="com.nenu.software.common.entity.News">
+        SELECT *
+        FROM t_news
+    </select>
+
+    <select id="queryByModule" resultType="com.nenu.software.common.entity.News">
+        SELECT *
+        FROM t_news
+        WHERE type = #{module}
+    </select>
+</mapper>
