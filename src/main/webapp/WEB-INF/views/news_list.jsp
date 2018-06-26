@@ -105,7 +105,7 @@
                                                 <div class="btn-group">
                                                     <a class="btn btn-success" href="${pageContext.request.contextPath}/news/detail/${news.id}">查看</a>
                                                     <a class="btn btn-primary" href="${pageContext.request.contextPath}/news/update/${news.id}">修改</a>
-                                                    <a class="btn btn-danger" href="${pageContext.request.contextPath}/news/delete" data-id="${news.id}">删除</a>
+                                                    <a class="btn btn-danger del" href="${pageContext.request.contextPath}/news/delete" data-id="${news.id}">删除</a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -169,8 +169,25 @@ $(document).ready(function() {
         else {
             table.order( [ 2, 'asc' ] ).draw();
         }
-    } );
-} );
+    });
+
+    $('.del').click(function() {
+        let id = $(this).data('id')
+        $.ajax({
+            url: '/delete',
+            type: 'GET',
+            dataType: 'json',
+            data: {
+                id: id
+            },
+            success: function(data){
+                if (data.code == 1) {
+                    $(`tr[data-id=${id}]`).remove()
+                }
+            }
+        })
+    });
+});
 </script>
   </body>
 </html>
