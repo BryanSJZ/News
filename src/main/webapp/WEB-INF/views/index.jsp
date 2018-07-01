@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="sidebar.jsp" />
 <jsp:include page="header.jsp" />
@@ -92,49 +93,54 @@
       <!--header end-->
 
       <!--sidebar start-->
-      <aside>
-          <div id="sidebar"  class="nav-collapse ">
-              <!-- sidebar menu start-->
-              <ul class="sidebar-menu">                
-                  <li class="active">
-                      <a class="" href="${pageContext.request.contextPath}/index/">
-                          <i class="icon_house_alt"></i>
-                          <span>主页</span>
-                      </a>
-                  </li>
-				  <li class="sub-menu">
-                      <a href="javascript:;" class="">
-                          <i class="icon_document_alt"></i>
-                          <span>栏目管理</span>
-                          <span class="menu-arrow arrow_carrot-right"></span>
-                      </a>
-                      <ul class="sub">
-                          <li><a class="" href="${pageContext.request.contextPath}/module/list">栏目列表</a></li>
-                          <li><a class="" href="${pageContext.request.contextPath}/module/add">增添栏目</a></li>
-                      </ul>
-                  </li>       
-                  <li class="sub-menu">
-                      <a href="javascript:;" class="">
-                          <i class="icon_desktop"></i>
-                          <span>新闻管理</span>
-                          <span class="menu-arrow arrow_carrot-right"></span>
-                      </a>
-                      <ul class="sub">
-                          <li><a class="" href="${pageContext.request.contextPath}/news/list">新闻列表</a></li>
-                          <li><a class="" href="${pageContext.request.contextPath}/news/add">增添新闻</a></li>
-                      </ul>
-                  </li>
-                  
-              </ul>
-              <!-- sidebar menu end-->
-          </div>
-      </aside>
+      <%--<aside>--%>
+          <%--<div id="sidebar"  class="nav-collapse ">--%>
+              <%--<!-- sidebar menu start-->--%>
+              <%--<ul class="sidebar-menu">                --%>
+                  <%--<li class="active">--%>
+                      <%--<a class="" href="${pageContext.request.contextPath}/index/">--%>
+                          <%--<i class="icon_house_alt"></i>--%>
+                          <%--<span>主页</span>--%>
+                      <%--</a>--%>
+                  <%--</li>--%>
+				  <%--<li class="sub-menu">--%>
+                      <%--<a href="javascript:;" class="">--%>
+                          <%--<i class="icon_document_alt"></i>--%>
+                          <%--<span>栏目管理</span>--%>
+                          <%--<span class="menu-arrow arrow_carrot-right"></span>--%>
+                      <%--</a>--%>
+                      <%--<ul class="sub">--%>
+                          <%--<li><a class="" href="${pageContext.request.contextPath}/module/list">栏目列表</a></li>--%>
+                          <%--<li><a class="" href="${pageContext.request.contextPath}/module/add">增添栏目</a></li>--%>
+                      <%--</ul>--%>
+                  <%--</li>       --%>
+                  <%--<li class="sub-menu">--%>
+                      <%--<a href="javascript:;" class="">--%>
+                          <%--<i class="icon_desktop"></i>--%>
+                          <%--<span>新闻管理</span>--%>
+                          <%--<span class="menu-arrow arrow_carrot-right"></span>--%>
+                      <%--</a>--%>
+                      <%--<ul class="sub">--%>
+                          <%--<li><a class="" href="${pageContext.request.contextPath}/news/list">新闻列表</a></li>--%>
+                          <%--<li><a class="" href="${pageContext.request.contextPath}/news/add">增添新闻</a></li>--%>
+                      <%--</ul>--%>
+                  <%--</li>--%>
+                  <%----%>
+              <%--</ul>--%>
+              <%--<!-- sidebar menu end-->--%>
+          <%--</div>--%>
+      <%--</aside>--%>
       <!--sidebar end-->
       
       <!--main content start-->
       <section id="main-content">
         <section class="wrapper">
-            <p>${sessionScope.user.username}，您好。欢迎来到新闻管理系统</p>
+            <c:if test="${sessionScope.user != null}">
+                <p>${sessionScope.user.username}，您好。欢迎来到新闻管理系统</p>
+            </c:if>
+            <c:if test="${sessionScope.user == null}">
+                <p>您还未登陆，请先<a href="${pageContext.request.contextPath}/user/index">登陆</a></p>
+            </c:if>
         </section>
       </section>
       <!--main content end-->

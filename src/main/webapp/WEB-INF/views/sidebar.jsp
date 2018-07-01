@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!--sidebar start-->
       <aside>
@@ -18,7 +19,9 @@
                       </a>
                       <ul class="sub">
                           <li><a class="" href="${pageContext.request.contextPath}/module/list">栏目列表</a></li>
-                          <li><a class="" href="${pageContext.request.contextPath}/module/add">增添栏目</a></li>
+                        <c:if test="${sessionScope.user != null}">
+                            <li><a class="" href="${pageContext.request.contextPath}/module/add">增添栏目</a></li>
+                        </c:if>
                       </ul>
                   </li>       
                   <li class="sub-menu">
@@ -29,10 +32,11 @@
                       </a>
                       <ul class="sub">
                           <li><a class="" href="${pageContext.request.contextPath}/news/list">新闻列表</a></li>
+                        <c:if test="${sessionScope.user != null}">
                           <li><a class="" href="${pageContext.request.contextPath}/news/add">增添新闻</a></li>
+                        </c:if>
                       </ul>
                   </li>
-                  
               </ul>
               <!-- sidebar menu end-->
           </div>

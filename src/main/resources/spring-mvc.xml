@@ -36,9 +36,9 @@
         <property name="suffix" value=".jsp" />
     </bean>
 
-    <!--<mvc:interceptors>
+    <mvc:interceptors>
         <bean class="com.nenu.software.common.interceptor.LoginInterceptor"/>
-    </mvc:interceptors>-->
+    </mvc:interceptors>
 
 
     <mvc:annotation-driven>

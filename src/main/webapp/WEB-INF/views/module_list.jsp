@@ -76,7 +76,9 @@
                                             <td>
                                                 <div class="btn-group">
                                                     <a class="btn btn-primary" href="${pageContext.request.contextPath}/module/update/${module.id}">修改</a>
-                                                    <a class="btn btn-danger del" href="${pageContext.request.contextPath}/module/delete" data-id="${module.id}">删除</a>
+                                                    <c:if test="${sessionScope.user != null}">
+                                                        <a class="btn btn-danger del" href="${pageContext.request.contextPath}/module/delete" data-id="${module.id}">删除</a>
+                                                    </c:if>
                                                     <a class="btn btn-primary" href="${pageContext.request.contextPath}/news/list/${module.id}">该类新闻列表</a>
                                                 </div>
                                             </td>

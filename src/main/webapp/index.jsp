@@ -1,6 +1,6 @@
 <html>
 <body>
 <h2>Hello World!</h2>
-<jsp:forward page="/user/index" />
+<jsp:forward page="/index/" />
 </body>
 </html>
